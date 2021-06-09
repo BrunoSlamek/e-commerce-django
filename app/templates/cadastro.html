@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+    <title>cadastro-usuário</title>
+</head>
+
+<body>
+    <div class="container">
+        <form id="contact" action="" method="post">
+            <h1>Sign up</h1>
+            <fieldset>
+                <input placeholder="username" type="text" tabindex="1" required autofocus>
+            </fieldset>
+            <fieldset>
+                <input placeholder="Email" type="email" tabindex="2" required>
+            </fieldset>
+            <fieldset>
+                <input placeholder="Telefone (opcional)" type="tel" tabindex="3" required>
+            </fieldset>
+
+            <fieldset>
+                <input placeholder="password" type="tel" tabindex="3" required>
+            </fieldset>
+            <fieldset>
+                <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">cadastrar</button>
+            </fieldset>
+            <p class="message">Já tem cadastro? <a href="{% url 'login' %}">Login</a></p>
+        </form>
+    </div>
+</body>
+
+</html>
