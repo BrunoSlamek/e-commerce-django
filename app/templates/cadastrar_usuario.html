@@ -6,28 +6,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cadastrar_usuario.css' %}">
     <title>cadastro-usuário</title>
 </head>
 
 <body>
     <div class="container">
         <form id="contact" action="" method="post">
+            {% csrf_token %}
             <h1>Sign up</h1>
             <fieldset>
+                {{form_usuario.username.errors}}
                 <input placeholder="username" type="text" tabindex="1" required autofocus>
+                {{form_usuario.username}}
             </fieldset>
             <fieldset>
-                <input placeholder="Email" type="email" tabindex="2" required>
+                <input placeholder="Email (opcional)" type="email" tabindex="2" >
             </fieldset>
             <fieldset>
-                <input placeholder="Telefone (opcional)" type="tel" tabindex="3" required>
-            </fieldset>
-
-            <fieldset>
-                <input placeholder="password" type="tel" tabindex="3" required>
+                <input placeholder="Telefone (opcional)" type="tel" tabindex="3" >
             </fieldset>
             <fieldset>
+                {{form_usuario.password1.errors}}
+                <input placeholder="password1" type="text" tabindex="1" required autofocus>
+                {{form_usuario.password1}}
+            </fieldset>
+            <fieldset>
+                {{form_usuario.password2.errors}}
+                <label placeholder="Confirm password2" type="text" tabindex="1" required autofocus>
+                {{form_usuario.password2}}
+            </fieldset>
+            <fieldset>  
                 <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">cadastrar</button>
             </fieldset>
             <p class="message">Já tem cadastro? <a href="{% url 'login' %}">Login</a></p>
