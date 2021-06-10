@@ -112,3 +112,7 @@ fieldset {
 #contact button[type="submit"]:active {
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
 }
+
+#contact .form-group {
+    text-align: center;
+}

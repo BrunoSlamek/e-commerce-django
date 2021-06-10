@@ -20,3 +20,5 @@ def cadastrar_usuario(request):
     else:
         form_usuario = UserCreationForm()
     return render(request, 'cadastrar_usuario.html', {'form_usuario': form_usuario})
+
+

@@ -17,23 +17,17 @@
             <h1>Sign up</h1>
             <fieldset>
                 {{form_usuario.username.errors}}
-                <input placeholder="username" type="text" tabindex="1" required autofocus>
+                <label placeholder="username" type="text" tabindex="1" required autofocus></label>
                 {{form_usuario.username}}
             </fieldset>
             <fieldset>
-                <input placeholder="Email (opcional)" type="email" tabindex="2" >
-            </fieldset>
-            <fieldset>
-                <input placeholder="Telefone (opcional)" type="tel" tabindex="3" >
-            </fieldset>
-            <fieldset>
                 {{form_usuario.password1.errors}}
-                <input placeholder="password1" type="text" tabindex="1" required autofocus>
+                <input placeholder="password1" type="password1" tabindex="1" required autofocus>
                 {{form_usuario.password1}}
             </fieldset>
             <fieldset>
                 {{form_usuario.password2.errors}}
-                <label placeholder="Confirm password2" type="text" tabindex="1" required autofocus>
+                <input placeholder="Confirm password2" type="password2" tabindex="1" required autofocus>
                 {{form_usuario.password2}}
             </fieldset>
             <fieldset>  
