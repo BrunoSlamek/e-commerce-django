@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.views.decorators.http import require_POST, require_GET
+from django.http import HttpResponseRedirect
 
 
 def index(request):
@@ -21,4 +23,14 @@ def cadastrar_usuario(request):
         form_usuario = UserCreationForm()
     return render(request, 'cadastrar_usuario.html', {'form_usuario': form_usuario})
 
+
+@require_GET
+def cadastrar_usuario(request):
+    nome_usuario = request.POST['campo-nome-usuario']
+    email = request.POST['campo-email']
+    senha = request.POST['campo-senha'] 
+
+    novo_usuario = User.objects.create_user(username=nome_usuario, email=email, password=senha)
+    novo_usuario.save()
+    return render(request, 'cadastrar_usuario.html')
 

@@ -11,30 +11,17 @@
 </head>
 
 <body>
-    <div class="container">
-        <form id="contact" action="" method="post">
-            {% csrf_token %}
-            <h1>Sign up</h1>
-            <fieldset>
-                {{form_usuario.username.errors}}
-                <label placeholder="username" type="text" tabindex="1" required autofocus></label>
-                {{form_usuario.username}}
-            </fieldset>
-            <fieldset>
-                {{form_usuario.password1.errors}}
-                <input placeholder="password1" type="password1" tabindex="1" required autofocus>
-                {{form_usuario.password1}}
-            </fieldset>
-            <fieldset>
-                {{form_usuario.password2.errors}}
-                <input placeholder="Confirm password2" type="password2" tabindex="1" required autofocus>
-                {{form_usuario.password2}}
-            </fieldset>
-            <fieldset>  
-                <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">cadastrar</button>
-            </fieldset>
-            <p class="message">Já tem cadastro? <a href="{% url 'login' %}">Login</a></p>
-        </form>
+    <div class="login-page">
+        <div class="form">
+            <form method="GET" class="login-form">
+                <h1 id="sign">Sign up</h1>
+                <input name="campo-nome-usuario" type="text" placeholder="username" />
+                <input name="campo-email" type="email" placeholder="email" />
+                <input name="campo-senha" type="password" placeholder="password" />
+                <button>login</button>
+                <p class="message">Já possuí cadastro? <a href="{% url 'login' %}">Login</a></p>
+            </form>
+        </div>
     </div>
 </body>
 
