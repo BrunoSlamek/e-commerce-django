@@ -1,16 +1,26 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
-from django.views.decorators.http import require_POST, require_GET
-from django.http import HttpResponseRedirect
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import authenticate, login
 
 
 def index(request):
     return render(request, 'index.html')
 
 
-def login(request):
-    return render(request, 'login.html')
+def login_usuario(request):
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        usuario = authenticate(username=username, password=password)
+        if usuario is not None:
+            login(request, usuario)
+            return redirect('index')
+        else:
+            form_login = AuthenticationForm()
+    else:
+        form_login = AuthenticationForm()
+    return render(request, 'login.html', {'form_login': form_login})
 
 
 def cadastrar_usuario(request):
@@ -24,6 +34,7 @@ def cadastrar_usuario(request):
     return render(request, 'cadastrar_usuario.html', {'form_usuario': form_usuario})
 
 
+"""
 @require_GET
 def cadastrar_usuario(request):
     nome_usuario = request.POST['campo-nome-usuario']
@@ -33,4 +44,4 @@ def cadastrar_usuario(request):
     novo_usuario = User.objects.create_user(username=nome_usuario, email=email, password=senha)
     novo_usuario.save()
     return render(request, 'cadastrar_usuario.html')
-
+"""

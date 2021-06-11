@@ -13,10 +13,20 @@
 <body>
     <div class="login-page">
         <div class="form">
-            <form class="login-form">
+            <form method="POST" class="login-form">
+                
+                {% csrf_token %}
+
                 <h1 id="sign">Sign in</h1>
-                <input type="text" placeholder="username" />
-                <input type="password" placeholder="password" />
+
+                {{form_login.username.errors}}
+                <label>Username: </label>
+                {{form_login.username}}
+
+                {{form_login.password.errors}}
+                <label>Senha: </label>
+                {{form_login.password}}
+
                 <button>login</button>
                 <p class="message">Não possuí conta? <a href="{% url 'cadastrar_usuario' %}">Crie uma conta</a></p>
             </form>

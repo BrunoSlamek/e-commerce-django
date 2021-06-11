@@ -13,13 +13,25 @@
 <body>
     <div class="login-page">
         <div class="form">
-            <form method="GET" class="login-form">
+            <form method="POST" class="login-form">
+                {% csrf_token %}
+
                 <h1 id="sign">Sign up</h1>
-                <input name="campo-nome-usuario" type="text" placeholder="username" />
-                <input name="campo-email" type="email" placeholder="email" />
-                <input name="campo-senha" type="password" placeholder="password" />
-                <button>login</button>
-                <p class="message">Já possuí cadastro? <a href="{% url 'login' %}">Login</a></p>
+
+                {{form_usuario.username.errors}}
+                <label>Username: </label>
+                {{form_usuario.username}}
+
+                {{form_usuario.password1.errors}}
+                <label>Senha: </label>
+                {{form_usuario.password1}}
+
+                {{form_usuario.password2.errors}}
+                <label>Confirmação de senha: </label>
+                {{form_usuario.password2}}
+
+                <button>Cadastrar</button>
+                <p class="message">Já possuí cadastro? <a href="{% url 'login_usuario' %}">Login</a></p>
             </form>
         </div>
     </div>
