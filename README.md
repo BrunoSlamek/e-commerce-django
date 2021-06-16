@@ -19,5 +19,11 @@ E-commerce com framework web django, projeto para um hamburgueria.
  - Crud no carrinho de compra
 
 
-## Tela de cadastro e login
+## Tela de cadastro
 
+![tela-cadastro-usuario](https://user-images.githubusercontent.com/61333566/122276314-0bf8e800-cebb-11eb-805c-466cb3e6cf96.PNG)
+
+
+## Tela de login
+
+![tela-login](https://user-images.githubusercontent.com/61333566/122276428-2763f300-cebb-11eb-8b83-5db63f507a06.PNG)
